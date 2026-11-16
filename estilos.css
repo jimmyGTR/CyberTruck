@@ -1,0 +1,136 @@
+/* Fondo animado moderno */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(-45deg, #f4f7f6, #e3eeff, #f3e7e9, #ffffff);
+  background-size: 400% 400%;
+  animation: moverFondo 15s ease infinite;
+  color: #222;
+}
+
+@keyframes moverFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.encabezado {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+/* Cuadrícula adaptable a celular y PC */
+.contenedor-vitrina {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Tarjetas con movimiento Hover y entrada por Scroll */
+.tarjeta-ficha {
+  background: #ffffff;
+  border-radius: 12px;
+  border-left: 6px solid #25D366;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-ficha:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.animar-entrada {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animar-entrada.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ficha-imagen {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tarjeta-ficha:hover .ficha-imagen {
+  transform: scale(1.05);
+}
+
+.ficha-cuerpo { padding: 18px; }
+.ficha-codigo { font-size: 0.8rem; color: #666; font-weight: bold; }
+.ficha-titulo { margin: 6px 0; font-size: 1.3rem; }
+.ficha-calificacion { margin-bottom: 8px; font-size: 0.9rem; }
+.ficha-desc { font-size: 0.95rem; color: #444; line-height: 1.4; }
+
+.ficha-datos-tecnicos {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+.ficha-acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.9; }
+.btn-video { background: #1e293b; color: #fff; }
+.btn-pedir { background: #25D366; color: #fff; }
+
+/* Estilos del Modal de Video */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 100%;
+  position: relative;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: bold;
+}

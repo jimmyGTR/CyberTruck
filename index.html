@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Interactivo</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Nuestro Catálogo</h1>
+    <p>Explora nuestros productos y contáctanos directo por WhatsApp</p>
+  </header>
+
+  <!-- Aquí app.js dibujará todas tus tarjetas automáticamente -->
+  <main id="vitrina" class="contenedor-vitrina"></main>
+
+  <!-- Ventana emergente (Modal) para reproducir los videos -->
+  <div id="modal-video" class="modal" onclick="cerrarVideo(event)">
+    <div class="modal-contenido">
+      <span class="cerrar-modal" onclick="cerrarVideo(event, true)">&times;</span>
+      <h3 id="modal-titulo"></h3>
+      <video id="reproductor-video" controls width="100%"></video>
+    </div>
+  </div>
+
+  <!-- El orden es vital: primero los datos, luego la lógica -->
+  <script src="datos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
